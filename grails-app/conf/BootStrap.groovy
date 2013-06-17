@@ -134,7 +134,6 @@ class BootStrap {
         newVersione('Security', 'Creazione iniziale dei ruoli.')
     }// fine del metodo
 
-
     //--creazione accessi
     //--occorre SEMPRE un accesso come programmatore
     //--occorre SEMPRE un accesso come admin
