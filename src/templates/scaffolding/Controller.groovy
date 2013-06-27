@@ -41,7 +41,7 @@ class ${className}Controller {
         }// fine del blocco if e fine anticipata del metodo
 
         flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: 'show', id: ${propertyName}.id)
+        redirect(action: 'list')
     } // fine del metodo
 
     def show(Long id) {
@@ -95,7 +95,7 @@ class ${className}Controller {
         }// fine del blocco if e fine anticipata del metodo
 
         flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: 'show', id: ${propertyName}.id)
+        redirect(action: 'list')
     } // fine del metodo
 
     def delete(Long id) {

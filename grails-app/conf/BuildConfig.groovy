@@ -46,25 +46,24 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        // obbligatori
+        //--obbligatori
         build ":tomcat:$grailsVersion"
         runtime ":hibernate:$grailsVersion"
         build ":release:2.2.1"
         compile ':cache:1.0.1'
 
-        // opzionali
+        //--opzionali
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
         compile ":csv:0.3.1"
         //runtime ":database-migration:1.3.2"
-        //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.5"
         compile ":quartz:1.0-RC5"
         compile ":mail:1.0"
         compile ":spring-security-core:1.2.7.3"
 
-        // plugin della algos
+        //--plugin della algos
         compile ":algos:latest.integration"
     }
 }

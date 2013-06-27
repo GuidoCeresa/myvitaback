@@ -17,4 +17,9 @@ public interface Cost {
     public static String PROG_NICK= 'gac'
     public static String PROG_PASS = 'fulvia'
 
+    //--sigle degli eventi base da controllare
+    public static String EVENTO_NEW = 'new'
+    public static String EVENTO_EDIT = 'edit'
+    public static String EVENTO_DELETE = 'delete'
+
 } // fine della interfaccia

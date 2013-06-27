@@ -133,11 +133,10 @@ class VitaTagLib {
      */
     def listaControllers = {
         String testoOut = ''
-        String listaControlliTxt
-        def lista
 
         if (utenteService.isLoggatoProgrammatore()) {
             testoOut += tagController('Versione')
+            testoOut += tagController('Logo')
             testoOut += tagController('Role')
             testoOut += tagController('User')
             testoOut += tagController('UserRole')

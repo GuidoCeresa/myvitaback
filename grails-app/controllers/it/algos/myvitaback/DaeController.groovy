@@ -1,11 +1,20 @@
 package it.algos.myvitaback
 
 import grails.plugins.springsecurity.Secured
+import it.algos.algoslogo.Evento
 import org.springframework.dao.DataIntegrityViolationException
 
 class DaeController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+
+    // utilizzo di un service con la businessLogic per l'elaborazione dei dati
+    // il service viene iniettato automaticamente
+    def springSecurityService
+
+    // utilizzo di un service con la businessLogic per l'elaborazione dei dati
+    // il service viene iniettato automaticamente
+    def logoService
 
     def index() {
         redirect(action: "list", params: params)
@@ -37,7 +46,7 @@ class DaeController {
             params.order = 'asc'
         }// fine del blocco if-else
 
-        lista = Dae.findAll(params,[sort:'comune.nome'])
+        lista = Dae.findAll(params, [sort: 'comune.nome'])
 
         render(view: 'list', model: [daeInstanceList: lista, daeInstanceTotal: lista.size(), campiLista: campiLista], params: params)
     } // fine del metodo
@@ -207,6 +216,10 @@ class DaeController {
     @Secured([Cost.ROLE_ADMIN])
     def update(Long id, Long version) {
         def daeInstance = Dae.get(id)
+        Evento evento = Evento.findByNome(Cost.EVENTO_EDIT)
+        User currUser = (User) springSecurityService.getCurrentUser()
+        String ruolo = 'admin'
+
         if (!daeInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'dae.label', default: 'Dae'), id])
             redirect(action: "list")
@@ -229,6 +242,9 @@ class DaeController {
             render(view: "edit", model: [daeInstance: daeInstance])
             return
         }
+
+        //--registra la traccia di chi ha modificato e quando
+        logoService.setInfo(request, evento, currUser?.username, ruolo)
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'dae.label', default: 'Dae'), daeInstance.id])
         redirect(action: "show", id: daeInstance.id)

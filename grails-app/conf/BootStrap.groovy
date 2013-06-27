@@ -8,6 +8,7 @@
 /* occorre cancellarlo PRIMA di reinstallare il plugin */
 
 
+import it.algos.algoslogo.Evento
 import it.algos.algosvers.Versione
 import it.algos.myvitaback.*
 import java.sql.Timestamp
@@ -100,6 +101,11 @@ class BootStrap {
         //--aggiunta plugin della posta
         if (installaVersione(16)) {
             aggiuntaMail()
+        }// fine del blocco if
+
+        //--aggiunta plugin logo
+        if (installaVersione(17)) {
+            setupLogo()
         }// fine del blocco if
 
 //        //--aggiunta dei campi dateCreated e lastUpdated
@@ -964,6 +970,21 @@ class BootStrap {
     private static void aggiuntaMail() {
         newVersione('Plugin', "Aggiunta plugin della posta.")
     }// fine del metodo
+
+    //--aggiunta plugin logo
+    //--creazione Eventi base da usare per il logo
+    private static void setupLogo() {
+        def listaEventi = Evento.findAll()
+
+        if (!listaEventi) {
+            Evento.findOrCreateByNome(Cost.EVENTO_NEW).save(failOnError: true)
+            Evento.findOrCreateByNome(Cost.EVENTO_EDIT).save(failOnError: true)
+            Evento.findOrCreateByNome(Cost.EVENTO_DELETE).save(failOnError: true)
+        }// fine del blocco if
+
+        newVersione('Plugin', "Aggiunta plugin logo.")
+    }// fine del metodo
+
 
     //--aggiunta dei campi dateCreated e lastUpdated
     //--inserimento di una data iniziale
