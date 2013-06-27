@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e80823e8-960f-4867-b5e1-b9c3cecb1b53" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myvitaback.war" afterPath="$PROJECT_DIR$/target/myvitaback.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/scaffolding/Controller.groovy" afterPath="$PROJECT_DIR$/src/templates/scaffolding/Controller.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/it/algos/myvitaback/Cost.groovy" afterPath="$PROJECT_DIR$/src/groovy/it/algos/myvitaback/Cost.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/artifacts/Script.groovy" afterPath="$PROJECT_DIR$/src/templates/artifacts/Script.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/scaffolding/Test.groovy" afterPath="$PROJECT_DIR$/src/templates/scaffolding/Test.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/artifacts/WebTest.groovy" afterPath="$PROJECT_DIR$/src/templates/artifacts/WebTest.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/artifacts/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/templates/artifacts/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myvitaback-grailsPlugins.iml" afterPath="$PROJECT_DIR$/myvitaback-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/scaffolding/renderEditor.template" afterPath="$PROJECT_DIR$/src/templates/scaffolding/renderEditor.template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myvitaback.iws" />
@@ -25,7 +11,7 @@
     <file path="$PROJECT_DIR$/.idea/modules.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113729873" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113165596" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/compiler.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113165596" ignored="false" />
-    <file path="/Dummy.txt" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372336739571" ignored="false" />
+    <file path="/Dummy.txt" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372336820323" ignored="false" />
     <file path="/main.css" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113699021" ignored="false" />
     <file path="/index.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113841040" ignored="false" />
     <file path="/main.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113923523" ignored="false" />
@@ -569,6 +555,11 @@
       <created>1371113164510</created>
       <updated>1371113164510</updated>
     </task>
+    <task id="LOCAL-00001" summary="add old files">
+      <created>1372336834194</created>
+      <updated>1372336834194</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
