@@ -2,6 +2,7 @@ package it.algos.myvitaback
 
 import grails.plugins.springsecurity.Secured
 import it.algos.algoslogo.Evento
+import it.algos.algospref.Preferenze
 import org.springframework.dao.DataIntegrityViolationException
 
 class DaeController {
@@ -73,6 +74,7 @@ class DaeController {
         String detail = ''
         float lat
         float lon
+        boolean datiDefinitivi = Preferenze.getBool(Cost.PREF_DATI_DEFINITIVI)
 
         if (id) {
             comune = Comune.get(id)
@@ -81,6 +83,7 @@ class DaeController {
         if (comune) {
             myComune = comune.nome
             listaDae = Dae.findAllByComune(comune)
+            def stop
         }// fine del blocco if
 
         if (listaDae) {
@@ -89,7 +92,7 @@ class DaeController {
                 lon = 0.0
                 detail = ''
                 dae = (Dae) it
-                if (dae.ok) {
+                if (!datiDefinitivi || (datiDefinitivi && dae.ok)) {
                     lat = dae.lat
                     lon = dae.lon
                     if (lat > 0) {
@@ -140,7 +143,7 @@ class DaeController {
                     myTip.add(detail)
                 }// fine del blocco if
             } // fine del ciclo each
-            myTitolo = 'Mancano le coordinate dei defibrillatori siti nel comune di ' + comune + '. Mappa di tutta la provincia (dati provvisori).'
+            myTitolo = 'Mappa dei defibrillatori di tutta la provincia (dati provvisori).'
         }// fine del blocco if
 
         render(view: 'mappa', model: [myTitolo: myTitolo, myComune: myComune, myLat: myLat, myLon: myLon, myTip: myTip])

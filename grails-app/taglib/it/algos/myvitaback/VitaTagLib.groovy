@@ -153,7 +153,7 @@ class VitaTagLib {
             testoOut += tagController('Provincia')
             testoOut += tagController('Stato')
         }// fine del blocco if
-        //testoOut += tagController('Comune', 'Selezione delle installazioni per comune')
+        testoOut += tagController('Comune', 'Selezione delle installazioni per comune')
         testoOut += tagController('Dae', 'Elenco completo')
 
         out << testoOut
@@ -360,7 +360,8 @@ class VitaTagLib {
 //        out << 'Algos© - v1.6 del 17 giugno 2013'
 //        out << 'Algos© - v1.7 del 27 giugno 2013'
 //        out << 'Algos© - v1.8 del 28 giugno 2013'
-        out << 'Algos© - v1.9 del 28 giugno 2013'
+//        out << 'Algos© - v1.9 del 28 giugno 2013'
+        out << 'Algos© - v2.0 del 28 giugno 2013'
     }// fine della closure
 
 } // fine della classe TagLib
