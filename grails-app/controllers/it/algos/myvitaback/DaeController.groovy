@@ -16,6 +16,10 @@ class DaeController {
     // il service viene iniettato automaticamente
     def logoService
 
+    // utilizzo di un service con la businessLogic per l'elaborazione dei dati
+    // il service viene iniettato automaticamente
+    def utenteService
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -45,6 +49,11 @@ class DaeController {
         } else {
             params.order = 'asc'
         }// fine del blocco if-else
+
+        //--colonna solo per il programmatore
+        if (utenteService.isLoggatoProgrammatore()) {
+            campiLista.add(0, 'id')
+        }// fine del blocco if
 
         lista = Dae.findAll(params, [sort: 'comune.nome'])
 
@@ -173,18 +182,25 @@ class DaeController {
     @Secured([Cost.ROLE_ADMIN])
     def save() {
         def daeInstance = new Dae(params)
+        Evento evento = Evento.findByNome(Cost.EVENTO_EDIT)
+        User currUser = (User) springSecurityService.getCurrentUser()
+        String ruolo = 'admin'
 
-        long newCodice = Dae.createCriteria().get {
+        long numCodice = Dae.createCriteria().get {
             projections {
                 max "codice"
             }
         } as Long
-        daeInstance.codice = newCodice + 1
+        numCodice++
+        daeInstance.codice = numCodice
 
         if (!daeInstance.save(flush: true)) {
             render(view: "create", model: [daeInstance: daeInstance])
             return
         }
+
+        //--registra la traccia di chi ha registrato e quando
+        logoService.setInfo(request, evento, currUser?.username, ruolo, "Creato nuovo record: #${numCodice}")
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'dae.label', default: 'Dae'), daeInstance.id])
         redirect(action: "show", id: daeInstance.id)
@@ -218,7 +234,8 @@ class DaeController {
         def daeInstance = Dae.get(id)
         Evento evento = Evento.findByNome(Cost.EVENTO_EDIT)
         User currUser = (User) springSecurityService.getCurrentUser()
-        String ruolo = 'admin'
+        String ruolo = ''
+        String dettaglio
 
         if (!daeInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'dae.label', default: 'Dae'), id])
@@ -236,6 +253,8 @@ class DaeController {
             }
         }
 
+        //--confronta i nuovi campi (params) coi vecchi (daeInstance.properties)
+        dettaglio = getModifiche(daeInstance, params)
         daeInstance.properties = params
 
         if (!daeInstance.save(flush: true)) {
@@ -244,7 +263,7 @@ class DaeController {
         }
 
         //--registra la traccia di chi ha modificato e quando
-        logoService.setInfo(request, evento, currUser?.username, ruolo)
+        logoService.setInfo(request, evento, currUser?.username, ruolo, dettaglio)
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'dae.label', default: 'Dae'), daeInstance.id])
         redirect(action: "show", id: daeInstance.id)
@@ -268,6 +287,25 @@ class DaeController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'dae.label', default: 'Dae'), id])
             redirect(action: "show", id: id)
         }
+    } // fine del metodo
+
+    private static String getModifiche(Dae dae, def mappa) {
+        String dettaglio = ''
+        def numRec = dae.id
+        def oldLat = dae.lat
+        def newLat = mappa.lat
+        def oldLon = dae.lon
+        def newLon = mappa.lon
+
+        if (newLat && newLon) {
+            if (oldLat == 0.0 && oldLon == 0.0) {
+                dettaglio = "Inserite le coordinate (rec#${numRec})"
+            } else {
+                dettaglio = "Modificate le coordinate (rec#${numRec})"
+            }// fine del blocco if-else
+        }// fine del blocco if
+
+        return dettaglio
     } // fine del metodo
 
 } // fine della controller classe

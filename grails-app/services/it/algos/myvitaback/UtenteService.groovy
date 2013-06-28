@@ -21,7 +21,6 @@ class UtenteService {
 
     //--controlla se l'utente attualmente loggato è un programmatore
     public boolean isLoggatoProgrammatore() {
-       def a=Cost.ROLE_PROG
         return this.isLoggatoNelRuolo(Cost.ROLE_PROG)
     }// fine del metodo
 
