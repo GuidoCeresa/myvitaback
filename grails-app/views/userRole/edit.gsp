@@ -1,4 +1,4 @@
-<%@ page import="myvitaback.UserRole" %>
+<%@ page import="it.algos.myvitaback.UserRole" %>
 <!DOCTYPE html>
 <html>
 	<head>

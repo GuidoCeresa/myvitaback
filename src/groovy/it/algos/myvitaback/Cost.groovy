@@ -22,4 +22,7 @@ public interface Cost {
     public static String EVENTO_EDIT = 'edit'
     public static String EVENTO_DELETE = 'delete'
 
+    //--codifica preferenze
+    public static String PREF_DATI_DEFINITIVI = 'datiDefinitivi'
+
 } // fine della interfaccia

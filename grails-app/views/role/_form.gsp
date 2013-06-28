@@ -1,4 +1,4 @@
-<%@ page import="myvitaback.Role" %>
+<%@ page import="it.algos.myvitaback.Role" %>
 
 
 

@@ -1,4 +1,4 @@
-package myvitaback
+package it.algos.myvitaback
 
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException

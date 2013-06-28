@@ -357,7 +357,9 @@ class VitaTagLib {
      */
     def copyright = {
 //        out << 'Algos© - v1.5 del 11 aprile 2013'
-        out << 'Algos© - v1.6 del 17 giugno 2013'
+//        out << 'Algos© - v1.6 del 17 giugno 2013'
+//        out << 'Algos© - v1.7 del 27 giugno 2013'
+        out << 'Algos© - v1.8 del 28 giugno 2013'
     }// fine della closure
 
 } // fine della classe TagLib

@@ -1,10 +1,25 @@
-package myvitaback
+package it.algos.myvitaback
 
 import grails.converters.JSON
+import it.algos.algospref.Preferenze
 
 import java.sql.Timestamp
 
 class MappaController {
+
+    def datidefinitivi() {
+        def risposta
+        String rispostaPositiva = 'Si'
+        String rispostaNegativa = 'No'
+
+        if (Preferenze.getBool(Cost.PREF_DATI_DEFINITIVI)) {
+            risposta = [rispostaPositiva]
+        } else {
+            risposta = [rispostaNegativa]
+        }// fine del blocco if-else
+
+        render risposta as JSON
+    } // fine del metodo
 
     def index() {
         def mappa = []
@@ -92,7 +107,7 @@ class MappaController {
 
                 categoria = dae.cat
                 if (categoria) {
-                    categoriaTxt = categoria.sigla
+                    categoriaTxt = categoria.nome
                     categoriaTxt = Lib.setApice(categoriaTxt)
                 }// fine del blocco if
 
@@ -258,6 +273,6 @@ class MappaController {
         }// fine del blocco if
 
         render mappa as JSON
-    }
+    } // fine del metodo
 
 } // fine della controller classe

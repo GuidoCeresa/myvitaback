@@ -9,6 +9,7 @@
 
 
 import it.algos.algoslogo.Evento
+import it.algos.algospref.Preferenze
 import it.algos.algosvers.Versione
 import it.algos.myvitaback.*
 import java.sql.Timestamp
@@ -50,12 +51,12 @@ class BootStrap {
 
         //--patch sulle categorie
         if (installaVersione(6)) {
-            patchCategorie()
+            patchCategorie(true)
         }// fine del blocco if
 
         //--patch sulle province
         if (installaVersione(7)) {
-            patchProvince()
+            patchProvince(true)
         }// fine del blocco if
 
         //--univocità delle province
@@ -65,7 +66,7 @@ class BootStrap {
 
         //--patch sui comuni
         if (installaVersione(9)) {
-            patchComuni()
+            patchComuni(true)
         }// fine del blocco if
 
         //--aggiunta del campo codice
@@ -75,7 +76,7 @@ class BootStrap {
 
         //--elimina l'apostrofo
         if (installaVersione(11)) {
-            eliminazioneApostrofo()
+            eliminazioneApostrofo(true)
         }// fine del blocco if
 
         //--univocità delle disponibilità
@@ -85,12 +86,12 @@ class BootStrap {
 
         //--elimina l'apostrofo
         if (installaVersione(13)) {
-            eliminazioneApostrofo()
+            eliminazioneApostrofo(true)
         }// fine del blocco if
 
         //--proprieta'
         if (installaVersione(14)) {
-            fixProprieta()
+            fixProprieta(true)
         }// fine del blocco if
 
         //--aggiunta plugin crono di Quartz
@@ -108,6 +109,21 @@ class BootStrap {
             setupLogo()
         }// fine del blocco if
 
+        //--aggiunta preferenza booleana di controllo dati definitivi
+        if (installaVersione(18)) {
+            addPreferenzaDatiDefinitivi()
+        }// fine del blocco if
+
+        //--elimina l'apostrofo
+        if (installaVersione(19)) {
+            fixComuneArquato(true)
+        }// fine del blocco if
+
+//        //--ricontrolla l'apostrofo dopo un nuovo inserimento dati grezzi
+//        if (installaVersione(19)) {
+//            ricontrollaApostrofo()
+//        }// fine del blocco if
+
 //        //--aggiunta dei campi dateCreated e lastUpdated
 //        //--inserimento di una data iniziale
 //        if (installaVersione(15)) {
@@ -120,11 +136,6 @@ class BootStrap {
 //        }// fine del blocco if
 //
 //
-//        //--elimina l'apostrofo
-//        //--Castell'arquato
-//        if (installaVersione(19)) {
-//            fixComuneArquato()
-//        }// fine del blocco if
     }// fine della closure
 
     //--creazione ruoli generali di accesso alle autorizzazioni gestite dal security-plugin
@@ -605,12 +616,14 @@ class BootStrap {
     }// fine del metodo
 
     //--patch sulle categorie
-    private static void patchCategorie() {
+    private static void patchCategorie(boolean registraVersione) {
 
         patchCat("Forze dell'ordine", "Forze di polizia")
         patchCat("Scuole ed istituti", "Scuole/istituti")
 
-        newVersione('Categorie', "Patch per la lunghezza di alcune categorie.")
+        if (registraVersione) {
+            newVersione('Categorie', "Patch per la lunghezza di alcune categorie.")
+        }// fine del blocco if
     }// fine del metodo
 
     //--singola patch sulle categorie
@@ -625,12 +638,14 @@ class BootStrap {
     }// fine del metodo
 
     //--patch sulle province
-    private static void patchProvince() {
+    private static void patchProvince(boolean registraVersione) {
 
         patchProv("Provincia", "Piacenza")
         patchProv("Citta'", "Piacenza")
 
-        newVersione('Province', "Patch per i nomi di alcune province.")
+        if (registraVersione) {
+            newVersione('Province', "Patch per i nomi di alcune province.")
+        }// fine del blocco if
     }// fine del metodo
 
     //--singola patch sulle province
@@ -694,7 +709,7 @@ class BootStrap {
     }// fine del metodo
 
     //--patch sui comuni
-    private static void patchComuni() {
+    private static void patchComuni(boolean registraVersione) {
         patchCom("San rocco", "San Rocco al Porto")
         patchCom("Castelsangiovanni", "Castel San Giovanni")
         patchCom("Ponte dell'olio", "Ponte dell'Olio")
@@ -706,7 +721,9 @@ class BootStrap {
         patchCom("Grazzano visconti", "Grazzano Visconti")
         patchCom("San pietro in cerro", "San Pietro in Cerro")
 
-        newVersione('Province', "Patch per i nomi di alcuni comuni. Maiuscole nel secondo nome")
+        if (registraVersione) {
+            newVersione('Province', "Patch per i nomi di alcuni comuni. Maiuscole nel secondo nome")
+        }// fine del blocco if
     }// fine del metodo
 
     //--singola patch sui comuni
@@ -847,7 +864,7 @@ class BootStrap {
 
     //--elimina l'apostrofo
     //--localita' ... liberta' ...
-    private static void eliminazioneApostrofo() {
+    private static void eliminazioneApostrofo(boolean registraVersione) {
         def lista
         Dae dae
         String nome
@@ -858,8 +875,9 @@ class BootStrap {
         ArrayList singoloTag
         String vecchio
         String nuovo
-        listaTag.add(["Castell'arquato", "Castellarquato"]) //@todo da rimettere
-        listaTag.add(["castell'arquato", "castellarquato"]) //@todo da rimettere
+        listaTag.add(["Castell'arquato", "CastellArquato"]) //@todo da rimettere
+        listaTag.add(["castell'arquato", "castellArquato"]) //@todo da rimettere
+        listaTag.add(["castell'Arquato", "castellArquato"]) //@todo da rimettere
         listaTag.add(["d'antona", "diantona"]) //@todo da rimettere
         listaTag.add(["all'ingresso", "ingresso"]) //@todo da rimettere
         listaTag.add(["nell'oratorio", "in oratorio"]) //@todo da rimettere
@@ -911,7 +929,9 @@ class BootStrap {
             } // fine del ciclo each
         } // fine del ciclo each
 
-        newVersione('Testo', "Eliminazione apostrofo dai testi")
+        if (registraVersione) {
+            newVersione('Testo', "Eliminazione apostrofo dai testi")
+        }// fine del blocco if
     }// fine del metodo
 
     //--univocità delle disponibilità
@@ -985,7 +1005,6 @@ class BootStrap {
         newVersione('Plugin', "Aggiunta plugin logo.")
     }// fine del metodo
 
-
     //--aggiunta dei campi dateCreated e lastUpdated
     //--inserimento di una data iniziale
     private static void creazioneDataModifica() {
@@ -1013,14 +1032,12 @@ class BootStrap {
     //--elimina l'apostrofo
     //--proprieta'
     //--COMODATO in minuscolo
-    private static void fixProprieta() {
+    private static void fixProprieta(boolean registraVersione) {
         def listaStato = Stato.findAll()
         Stato stato
         String nome
-        String tagOld = "PROPRIETA'"
+        String tagOld = "Proprieta'"
         String tagNew = "Proprietà"
-        String tagOld2 = "COMODATO"
-        String tagNew2 = "Comodato"
 
         listaStato?.each {
             stato = (Stato) it
@@ -1031,26 +1048,25 @@ class BootStrap {
                 stato.nome = nome
                 stato.save(flush: true)
             }// fine del blocco if
-            if (nome && nome.contains(tagOld2)) {
-                nome = nome.replace(tagOld2, tagNew2)
-                stato.nome = nome
-                stato.save(flush: true)
-            }// fine del blocco if
         } // fine del ciclo each
 
-        newVersione('Stato', "Eliminazione apostrofo della parola proprieta'.")
+        if (registraVersione) {
+            newVersione('Stato', "Eliminazione apostrofo della parola proprieta'.")
+        }// fine del blocco if
     }// fine del metodo
 
     //--elimina l'apostrofo
     //--Castell'arquato
-    private static void fixComuneArquato() {
+    private static void fixComuneArquato(boolean registraVersione) {
         def listaComuni = Comune.findAll()
         Comune comune
         String nome
         String tagOld = "Castell'arquato"
-        String tagNew = "Castellarquato"
-        String tagOld2 = "Ponte dell'olio"
-        String tagNew2 = "Ponte dellolio"
+        String tagOld2 = "Castell'Arquato"
+        String tagNew = "CastellArquato"
+        String tag2Old = "Ponte dell'olio"
+        String tag2Old2 = "Ponte dell'Olio"
+        String tag2New = "Ponte dellOlio"
 
         listaComuni?.each {
             comune = (Comune) it
@@ -1062,14 +1078,49 @@ class BootStrap {
                 comune.save(flush: true)
             }// fine del blocco if
             if (nome && nome.contains(tagOld2)) {
-                nome = nome.replace(tagOld2, tagNew2)
+                nome = nome.replace(tagOld2, tagNew)
+                comune.nome = nome
+                comune.save(flush: true)
+            }// fine del blocco if
+            if (nome && nome.contains(tag2Old)) {
+                nome = nome.replace(tag2Old, tag2New)
+                comune.nome = nome
+                comune.save(flush: true)
+            }// fine del blocco if
+            if (nome && nome.contains(tag2Old2)) {
+                nome = nome.replace(tag2Old2, tag2New)
                 comune.nome = nome
                 comune.save(flush: true)
             }// fine del blocco if
         } // fine del ciclo each
 
-        newVersione('Comune', "Eliminazione apostrofo da Castell'arquato e Ponte dell'olio.")
+        if (registraVersione) {
+            newVersione('Comune', "Eliminazione apostrofo da Castell'arquato e Ponte dell'olio.")
+        }// fine del blocco if
     }// fine del metodo
+
+    //--aggiunta preferenza booleana di controllo dati definitivi
+    private static void addPreferenzaDatiDefinitivi() {
+        Preferenze pref = Preferenze.findOrCreateByCodeAndTypeAndValue(Cost.PREF_DATI_DEFINITIVI, 'boolean', 'false')
+        if (pref) {
+            pref.save(flush: true)
+        }// fine del blocco if
+
+        newVersione('Preferenze', "Aggiunta preferenza booleana di controllo dati definitivi")
+    }// fine del metodo
+
+    //--ricontrolla l'apostrofo dopo un nuovo inserimento dati grezzi
+    private static void ricontrollaApostrofo() {
+        eliminazioneApostrofo(false)
+        fixProprieta(false)
+        fixComuneArquato(false)
+        patchCategorie(false)
+        patchProvince(false)
+        patchComuni(false)
+
+        newVersione('Testo', "Ricontrollato l'apostrofo dopo un nuovo inserimento dati grezzi")
+    }// fine del metodo
+
 
     private static String fixNome(def nomeGrezzo) {
         String nomeFinale = nomeGrezzo
