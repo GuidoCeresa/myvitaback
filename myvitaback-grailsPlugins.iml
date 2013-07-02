@@ -14,6 +14,7 @@
           <root url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/algospref-0.41/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/algos-0.36/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/algos-0.36/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -59,6 +60,11 @@
     <content url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/csv-0.3.1">
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/csv-0.3.1/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/csv-0.3.1/grails-app/i18n" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/hibernate-2.2.2">
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/hibernate-2.2.2/grails-app/i18n" isTestSource="false" />
@@ -142,9 +148,11 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/c3p0/c3p0/jars/c3p0-0.9.1.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.quartz-scheduler/quartz/jars/quartz-2.1.5.jar!/" />
+          <root url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.2.2/projects/myvitaback/plugins/export-1.5/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

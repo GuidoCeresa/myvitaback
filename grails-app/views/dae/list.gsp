@@ -49,6 +49,9 @@
 
     <div class="pagination">
         <g:paginate total="${daeInstanceTotal}"/>
+        <sec:ifLoggedIn>
+            <export:formats />
+        </sec:ifLoggedIn>
     </div>
 </div>
 </body>

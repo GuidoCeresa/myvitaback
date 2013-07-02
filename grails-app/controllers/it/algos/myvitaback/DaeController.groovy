@@ -3,6 +3,7 @@ package it.algos.myvitaback
 import grails.plugins.springsecurity.Secured
 import it.algos.algoslogo.Evento
 import it.algos.algospref.Preferenze
+import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import org.springframework.dao.DataIntegrityViolationException
 
 class DaeController {
@@ -20,6 +21,10 @@ class DaeController {
     // utilizzo di un service con la businessLogic per l'elaborazione dei dati
     // il service viene iniettato automaticamente
     def utenteService
+
+    // utilizzo di un service con la businessLogic per l'elaborazione dei dati
+    // il service viene iniettato automaticamente
+    def exportService
 
     def index() {
         redirect(action: "list", params: params)
@@ -58,7 +63,22 @@ class DaeController {
 
         lista = Dae.findAll(params, [sort: 'comune.nome'])
 
-        render(view: 'list', model: [daeInstanceList: lista, daeInstanceTotal: lista.size(), campiLista: campiLista], params: params)
+        if (params?.format && params.format != "html") {
+
+            List fields = []
+            def properties = new DefaultGrailsDomainClass(Dae.class).persistentProperties
+            properties?.each {
+                fields.add(it.name)
+            } // fine del ciclo each
+             String oggi = Lib.presentaDataMese(new Date())
+//            Map parameters = [title: "Dae in provincia di Piacenza", "column.widths": [0.2, 0.3, 0.5, 0.5, 0.5, 0.5, 0.5]]
+            Map parameters = [title: "Dae al ${oggi}"]
+            response.contentType = grailsApplication.config.grails.mime.types[params.format]
+            response.setHeader("Content-disposition", "attachment; filename=Dae.${params.extension}")
+            exportService.export(params.format, response.outputStream, lista, fields, [:], [:], parameters)
+        }
+
+        render(view: 'list', model: [daeInstanceList: lista, daeInstanceTotal: 0, campiLista: campiLista], params: params)
     } // fine del metodo
 
 

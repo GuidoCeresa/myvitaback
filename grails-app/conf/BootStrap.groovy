@@ -500,6 +500,9 @@ class BootStrap {
                     if (ultimaVerifica) {
                         dae.verifica = ultimaVerifica
                     }// fine del blocco if
+                    if (cartelli) {
+                        dae.cartelli = cartelli
+                    }// fine del blocco if
                     if (corso) {
                         dae.corso = corso
                     }// fine del blocco if

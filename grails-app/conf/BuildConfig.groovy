@@ -62,6 +62,7 @@ grails.project.dependency.resolution = {
         compile ":quartz:1.0-RC5"
         compile ":mail:1.0"
         compile ":spring-security-core:1.2.7.3"
+        compile ":export:1.5"
 
         //--plugin della algos
         compile ":algos:latest.integration"
