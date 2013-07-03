@@ -71,7 +71,6 @@ class DaeController {
                 fields.add(it.name)
             } // fine del ciclo each
              String oggi = Lib.presentaDataMese(new Date())
-//            Map parameters = [title: "Dae in provincia di Piacenza", "column.widths": [0.2, 0.3, 0.5, 0.5, 0.5, 0.5, 0.5]]
             Map parameters = [title: "Dae al ${oggi}"]
             response.contentType = grailsApplication.config.grails.mime.types[params.format]
             response.setHeader("Content-disposition", "attachment; filename=Dae.${params.extension}")

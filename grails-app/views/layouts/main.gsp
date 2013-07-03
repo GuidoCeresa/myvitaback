@@ -31,8 +31,6 @@
 </head>
 
 <body>
-%{--<div id="grailsLogo" role="banner"><a href="http://www.progetto-vita.eu/"><img--}%
-%{--src="${resource(dir: 'images', file: 'dae80.png')}" alt="Grails"/></a>Progetto Vita</div>--}%
 <vita:titoloPagina/>
 <g:layoutBody/>
 
