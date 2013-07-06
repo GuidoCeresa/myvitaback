@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e80823e8-960f-4867-b5e1-b9c3cecb1b53" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myvitaback.iws" />
@@ -14,12 +14,12 @@
     <file path="$PROJECT_DIR$/.idea/modules.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113729873" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113165596" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/compiler.xml" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113165596" ignored="false" />
-    <file path="/Dummy.txt" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372852245028" ignored="false" />
+    <file path="/Dummy.txt" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1373086780799" ignored="false" />
     <file path="/main.css" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113699021" ignored="false" />
     <file path="/index.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113841040" ignored="false" />
     <file path="/main.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371113923523" ignored="false" />
     <file path="/VitaTagLib.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371154822161" ignored="false" />
-    <file path="/a.dummy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372751957618" ignored="false" />
+    <file path="/a.dummy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372852686750" ignored="false" />
     <file path="$PROJECT_DIR$/../untitled2/grails-app/conf/BuildConfig.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371152712966" ignored="false" />
     <file path="/UtenteService.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371155021359" ignored="false" />
     <file path="/Batteria.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371186626963" ignored="false" />
@@ -39,7 +39,7 @@
     <file path="$PROJECT_DIR$/grails-app/views/categoria/_form.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371320511067" ignored="false" />
     <file path="/LoginController.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371321992868" ignored="false" />
     <file path="/Dae.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371368692638" ignored="false" />
-    <file path="/DaeController.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372751165049" ignored="false" />
+    <file path="/DaeController.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1373088415244" ignored="false" />
     <file path="/list.gsp" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372437961485" ignored="false" />
     <file path="$PROJECT_DIR$/../algos/grails-app/it/algos/algos/AlgosBuildConfig" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1371448251869" ignored="false" />
     <file path="$PROJECT_DIR$/../algoslogo/grails-app/conf/BuildConfig.groovy" changelist="e80823e8-960f-4867-b5e1-b9c3cecb1b53" time="1372144546727" ignored="false" />
@@ -128,19 +128,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VitaTagLib.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="VitaTagLib.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="364" column="26" selection-start="12950" selection-end="12971" vertical-scroll-proportion="0.0">
+            <state line="365" column="47" selection-start="13001" selection-end="13022" vertical-scroll-proportion="0.75735295">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+      <file leaf-file-name="mappa.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/dae/mappa.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="66" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.0">
+            <state line="21" column="23" selection-start="624" selection-end="644" vertical-scroll-proportion="-3.1914895">
               <folding />
             </state>
           </provider>
@@ -149,41 +149,9 @@
       <file leaf-file-name="DaeController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="62" selection-start="2856" selection-end="2856" vertical-scroll-proportion="95.21739">
-              <folding>
-                <element signature="e#29#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UrlMappings.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="157" column="68" selection-start="5375" selection-end="5375" vertical-scroll-proportion="-3.7826087">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MappaController.groovy" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="530" column="0" selection-start="17141" selection-end="17141" vertical-scroll-proportion="12.398176">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages_it.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages_it.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="19" selection-start="3834" selection-end="3834" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="ResourceBundle">
-            <state />
           </provider>
         </entry>
       </file>
@@ -215,12 +183,12 @@
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/dae/list.gsp" />
         <option value="$PROJECT_DIR$/grails-app/i18n/messages_it.properties" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy" />
       </list>
     </option>
   </component>
@@ -447,9 +415,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Grails.Myvitaback">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -468,19 +436,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -509,6 +464,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -628,7 +596,11 @@
       <created>1372751947271</created>
       <updated>1372751947271</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test mappa coordinate">
+      <created>1372852672664</created>
+      <updated>1372852672664</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -660,7 +632,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46327683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47740114" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -672,7 +644,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940991" sideWeight="0.53672314" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940991" sideWeight="0.52259886" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4519774" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -725,7 +697,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.1 del 2 luglio 2013" />
+    <option name="LAST_COMMIT_MESSAGE" value="test mappa coordinate" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -745,16 +717,12 @@
     <MESSAGE value="1.9 del 28 giugno 2013" />
     <MESSAGE value="2.0 del 28 giugno 2013" />
     <MESSAGE value="2.1 del 2 luglio 2013" />
+    <MESSAGE value="test mappa coordinate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="64" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="0" selection-start="2896" selection-end="2896" vertical-scroll-proportion="0.66266865" />
@@ -783,13 +751,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/it/algos/myvitaback/Dae.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="25.8">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/it/algos/myvitaback/Lib.groovy">
@@ -804,43 +772,20 @@
         <state line="507" column="60" selection-start="17402" selection-end="17402" vertical-scroll-proportion="7.2413793" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/dae/list.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.7983871">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="364" column="26" selection-start="12950" selection-end="12971" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages_it.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="19" selection-start="3834" selection-end="3834" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="66" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.0">
+        <state line="530" column="0" selection-start="17141" selection-end="17141" vertical-scroll-proportion="0.8325723">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="62" selection-start="2856" selection-end="2856" vertical-scroll-proportion="95.21739">
-          <folding>
-            <element signature="e#29#73#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,9 +796,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/MappaController.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="530" column="0" selection-start="17141" selection-end="17141" vertical-scroll-proportion="12.398176">
+        <state line="30" column="66" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.51981705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/dae/list.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="-10.531915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/dae/mappa.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="23" selection-start="624" selection-end="644" vertical-scroll-proportion="-3.1914895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/it/algos/myvitaback/DaeController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="68" selection-start="5375" selection-end="5375" vertical-scroll-proportion="-3.7826087">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/taglib/it/algos/myvitaback/VitaTagLib.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="365" column="47" selection-start="13001" selection-end="13022" vertical-scroll-proportion="0.75735295">
           <folding />
         </state>
       </provider>

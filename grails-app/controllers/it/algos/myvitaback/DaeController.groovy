@@ -153,11 +153,11 @@ class DaeController {
                     if (dae.disp) {
                         detail += dae.disp
                     }// fine del blocco if
-                    if (dae.disp && dae.loc) {
+                    if (dae.disp && dae.indirizzo) {
                         detail += ' - '
                     }// fine del blocco if
-                    if (dae.loc) {
-                        detail += dae.loc
+                    if (dae.indirizzo) {
+                        detail += dae.indirizzo
                     }// fine del blocco if
                     myTip.add(detail)
                 }// fine del blocco if
