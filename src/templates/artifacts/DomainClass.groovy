@@ -26,7 +26,7 @@
     } // end of static constraints
 
     /**
-     * Grails support two tipe of Inheritance:
+     * Grails support two type of Inheritance:
      * 1) table-per-hierarchy mapping (default)
      * 2) table-per-subclasses
      * By default GORM classes use table-per-hierarchy inheritance mapping.
@@ -35,6 +35,12 @@
      *         tablePerHierarchy false
      * The mapping of the root Xyz class specifies that it will not be using table-per-hierarchy mapping for all child classes.
      */
+    // nomi dei campi sul database, di default usa il nome interno del campo
+    // la superclasse di ogni domainClass inserisce i campi dateCreated e lastUpdated
+    // che vengono aggiornati automaticamente da GORM
+    // per disabilitare l'automatismo, mettere a false la proprietà autoTimestamp nella classe specifica
+    // Grails inserisce automaticamente la proprietà/campo 'versione' per l'optimistic locking
+    // per disabilitare l'automatismo, mettere a false la proprietà version nella classe specifica
     static mapping = {
         tablePerHierarchy true  //standard
     } // end of static mapping

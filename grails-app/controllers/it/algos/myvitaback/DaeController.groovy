@@ -61,7 +61,7 @@ class DaeController {
             campiLista.add(0, 'id')
         }// fine del blocco if
 
-        lista = Dae.findAll(params, [sort: 'comune.nome'])
+        lista = Dae.list()
 
         if (params?.format && params.format != "html") {
 
