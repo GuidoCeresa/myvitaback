@@ -19,10 +19,10 @@ class BootStrap {
     private static String DIR_PATH_SERVER = 'http://77.43.32.198:80/myvita/'
     private static String DIR_PATH_LOCAL = '/Users/gac/Documents/myvita/'
     private static String NOME_FILE_SERVER = 'dae'
-    private static String NOME_FILE_LOCAL = 'daenew'
+    private static String NOME_FILE_SERVER_NEW = 'daenew'
 
-    private static String DIR_PATH = DIR_PATH_LOCAL
-    private static String NOME_FILE = NOME_FILE_LOCAL
+    private static String DIR_PATH = DIR_PATH_SERVER
+    private static String NOME_FILE = NOME_FILE_SERVER_NEW
 
     //--metodo invocato direttamente da Grails
     //--tutte le aggiunte, modifiche, patch e nuove croci vengono inserite con una versione
