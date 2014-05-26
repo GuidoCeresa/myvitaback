@@ -8,13 +8,13 @@ class VersioneBootStrap {
     //--tutte le aggiunte, modifiche e patch vengono inserite con una versione
     //--l'ordine di inserimento è FONDAMENTALE
     def init = { servletContext ->
-        //--controllo del flusso
-        log.debug 'init'
-
-        //--prima installazione del programma
-        if (versioneService && versioneService.installaVersione(1)) {
-            versioneService.newVersione('Applicazione', 'Installazione iniziale')
-        }// fine del blocco if
+//        //--controllo del flusso
+//        log.debug 'init'
+//
+//        //--prima installazione del programma
+//        if (versioneService && versioneService.installaVersione(1)) {
+//            versioneService.newVersione('Applicazione', 'Installazione iniziale')
+//        }// fine del blocco if
     }// fine della closure
 
     //--metodo invocato direttamente da Grails

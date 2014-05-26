@@ -17,7 +17,7 @@ dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
     username = "root"
-    password = "cervino63"
+    password = ""
 } // end of dataSource
 
 hibernate {

@@ -16,8 +16,13 @@ import java.sql.Timestamp
 
 class BootStrap {
 
-    // private static String DIR_PATH = '/Users/Gac/Documents/IdeaProjects/webambulanze/grails-app/webambulanze/'
-    private static String DIR_PATH = 'http://77.43.32.198:80/myvita/'
+    private static String DIR_PATH_SERVER = 'http://77.43.32.198:80/myvita/'
+    private static String DIR_PATH_LOCAL = '/Users/gac/Documents/myvita/'
+    private static String NOME_FILE_SERVER = 'dae'
+    private static String NOME_FILE_LOCAL = 'daenew'
+
+    private static String DIR_PATH = DIR_PATH_LOCAL
+    private static String NOME_FILE = NOME_FILE_LOCAL
 
     //--metodo invocato direttamente da Grails
     //--tutte le aggiunte, modifiche, patch e nuove croci vengono inserite con una versione
@@ -139,6 +144,7 @@ class BootStrap {
     }// fine della closure
 
     //--creazione ruoli generali di accesso alle autorizzazioni gestite dal security-plugin
+    //--i ruoli sono sempre creati in ordine dal più 'potente' al minore
     //--occorre SEMPRE un ruolo ROLE_PROG
     //--occorre SEMPRE un ruolo ROLE_ADMIN
     //--occorre SEMPRE un ruolo ROLE_OSPITE
@@ -155,27 +161,18 @@ class BootStrap {
     //--occorre SEMPRE un accesso come programmatore
     //--occorre SEMPRE un accesso come admin
     //--occorre SEMPRE un accesso come ospite
+    //--li creo in ordine di visualizzazione per il popup
     //--li crea SOLO se non esistono già
     private static void securitySetup() {
-        User utenteProg
-        Role roleAdmin = Role.findOrCreateByAuthority(Cost.ROLE_ADMIN).save(failOnError: true)
-
         // ruolo di ospite
-        newUtente(Cost.ROLE_OSPITE, 'ospite', '')
+        newOspite('ospite', '')
 
         // ruoli di admin
-        newUtente(Cost.ROLE_ADMIN, 'chicca', 'chicca987')
-        newUtente(Cost.ROLE_ADMIN, 'daniela', 'daniela123')
-        newUtente(Cost.ROLE_ADMIN, 'enrico', 'enrico123')
+        newAdmin('daniela', 'daniela123')
+        newAdmin('enrico', 'enrico123')
 
         // ruolo di programmatore generale
-        utenteProg = newUtente(Cost.ROLE_PROG, 'gac', 'fulvia')
-
-        // ulteriore ruolo di admin per il programmatore
-        if (utenteProg) {
-            UserRole.findOrCreateByRoleAndUser(roleAdmin, utenteProg).save(failOnError: true)
-        }// fine del blocco if
-
+        newProg('gac', 'fulvia')
 
         newVersione('Security', 'Creazione iniziale degli accessi.')
     }// fine del metodo
@@ -183,7 +180,6 @@ class BootStrap {
     //--creazione delle tabelle dal file di excel
     //--li crea SOLO se non esistono già
     private static void creaTabelleDaExcel() {
-        String nomeFile = 'dae'
         def righe
         Map mappa = null
 
@@ -196,7 +192,7 @@ class BootStrap {
         println('Inizio creazione tabelle')
 
         //--recupera la mappa completa
-        righe = LibFile.leggeCsv(DIR_PATH + nomeFile)
+        righe = LibFile.leggeCsv(DIR_PATH + NOME_FILE)
 
         if (righe && righe.size() > 0) {
             righe?.each {
@@ -221,8 +217,8 @@ class BootStrap {
                         creaModello(fixNome(mappa.MODELLO))
                     }// fine del blocco if
 
-                    if (mappa.DISPPUNTOBLU) {
-                        creaDisponibilita(fixNome(mappa.DISPPUNTOBLU))
+                    if (mappa.DISP_PER_PUNTO_BLU) {
+                        creaDisponibilita(fixNome(mappa.DISP_PER_PUNTO_BLU))
                     }// fine del blocco if
 
                     if (mappa.COLLOCAZIONE) {
@@ -258,7 +254,6 @@ class BootStrap {
     //--li crea SOLO se non esistono già
     private static void creaDaeDaExcel() {
         Dae dae
-        String nomeFile = 'dae'
         def righe
         Categoria categoria = null
         String categoriaTxt = ''
@@ -306,7 +301,7 @@ class BootStrap {
         println('Inizio creazione defibrillatori')
 
         //--recupera la mappa completa
-        righe = LibFile.leggeCsv(DIR_PATH + nomeFile)
+        righe = LibFile.leggeCsv(DIR_PATH + NOME_FILE)
 
         righe?.each {
             mappa = (Map) it
@@ -372,8 +367,8 @@ class BootStrap {
                     modello = Modello.findByNome(fixNome(mappa.MODELLO))
                 }// fine del blocco if
 
-                if (mappa.NSERIE) {
-                    serie = fixNome(mappa.NSERIE)
+                if (mappa.N_SERIE) {
+                    serie = fixNome(mappa.N_SERIE)
                 }// fine del blocco if
 
                 if (mappa.REFERENTE) {
@@ -388,12 +383,12 @@ class BootStrap {
                     mail = fixNome(mappa.MAIL)
                 }// fine del blocco if
 
-                if (mappa.TELPERPUNTOBLU) {
-                    telpuntoblu = fixNome(mappa.TELPERPUNTOBLU)
+                if (mappa.TEL_E_CELLULARE) {
+                    telpuntoblu = fixNome(mappa.TEL_E_CELLULARE)
                 }// fine del blocco if
 
-                if (mappa.DISPPUNTOBLU) {
-                    disponibilita = Disponibilita.findByNome(fixNome(mappa.DISPPUNTOBLU))
+                if (mappa.DISP_PER_PUNTO_BLU) {
+                    disponibilita = Disponibilita.findByNome(fixNome(mappa.DISP_PER_PUNTO_BLU))
                 }// fine del blocco if
 
                 if (mappa.COLLOCAZIONE) {
@@ -416,8 +411,8 @@ class BootStrap {
                     teca = fixNome(mappa.TECA)
                 }// fine del blocco if
 
-                if (mappa.ULTIMAVERIFICA) {
-                    ultimaVerifica = fixNome(mappa.ULTIMAVERIFICA)
+                if (mappa.DATA_SCHEDA) {
+                    ultimaVerifica = fixNome(mappa.DATA_SCHEDA)
                 }// fine del blocco if
 
                 if (mappa.CARTELLI) {
@@ -781,25 +776,71 @@ class BootStrap {
 //
 //    }// fine del metodo
 
-    //--crea un utente con ruolo, nick e password indicati
+    //--crea un utente con ruolo programmatore, con nick e password indicati
     //--crea la tavola di incrocio
     //--lo crea SOLO se non esiste già
-    private static User newUtente(String siglaRuolo, String username, String password) {
-        User utente = null
-        Role ospiteRole = Role.findOrCreateByAuthority(Cost.ROLE_OSPITE).save(failOnError: true)
-        Role ruolo = Role.findByAuthority(siglaRuolo)
+    private static User newProg(String username, String password) {
+        return newUtenteRuolo(Cost.ROLE_PROG, username, password)
+    }// fine del metodo
 
-        if (username && ruolo) {
+    //--crea un utente con ruolo admin, con nick e password indicati
+    //--crea la tavola di incrocio
+    //--lo crea SOLO se non esiste già
+    private static User newAdmin(String username, String password) {
+        return newUtenteRuolo(Cost.ROLE_ADMIN, username, password)
+    }// fine del metodo
+
+    //--crea un utente con ruolo ospite, con nick e password indicati
+    //--crea la tavola di incrocio
+    //--lo crea SOLO se non esiste già
+    private static User newOspite(String username, String password) {
+        return newUtenteRuolo(Cost.ROLE_OSPITE, username, password)
+    }// fine del metodo
+
+    //--crea un utente con ruolo, nick e password indicati
+    //--crea anche tutti i ruoli inferiori
+    //--crea la tavola di incrocio
+    //--lo crea SOLO se non esiste già
+    private static User newUtenteRuolo(String siglaRuolo, String username, String password) {
+        User utente = null
+        int livelloRuolo = 0
+        int maxRuoli = Role.count()
+        Role ruolo
+
+        if (username) {
+            utente = newUtente(username, password)
+        }// fine del blocco if
+
+        if (utente) {
+            ruolo = Role.findByAuthority(siglaRuolo)
+        }// fine del blocco if
+
+        if (ruolo) {
+            livelloRuolo = ruolo.id
+        }// fine del blocco if
+
+        if (livelloRuolo) {
+            for (int k = 1; k <= maxRuoli; k++) {
+                ruolo = Role.findById(k)
+                if (ruolo) {
+                    UserRole.create(utente, ruolo, true)
+                }// fine del blocco if
+            } // fine del ciclo for
+        }// fine del blocco if
+
+        return utente
+    }// fine del metodo
+
+    //--crea un utente con nick e password indicati
+    //--lo crea SOLO se non esiste già
+    private static User newUtente(String username, String password) {
+        User utente = null
+
+        if (username) {
             utente = User.findOrCreateByUsername(username)
             utente.password = password
             utente.enabled = true
             utente.save(failOnError: true)
-            if (utente) {
-                UserRole.findOrCreateByRoleAndUser(ruolo, utente).save(failOnError: true)
-                if (!siglaRuolo.equals(Cost.ROLE_OSPITE)) {
-                    UserRole.findOrCreateByRoleAndUser(ospiteRole, utente).save(failOnError: true)
-                }// fine del blocco if
-            }// fine del blocco if
         }// fine del blocco if
 
         return utente

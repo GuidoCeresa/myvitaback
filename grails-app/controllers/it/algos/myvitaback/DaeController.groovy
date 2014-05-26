@@ -27,19 +27,33 @@ class DaeController {
     def exportService
 
     def index() {
-        redirect(action: "list", params: params)
+        redirect(action: 'list', params: params)
     }
 
     def list(Integer max) {
+        if (flash.error) {
+            params.flash.error = flash.error
+        }// fine del blocco if
+
+        if (utenteService.isLoggatoAdminOrMore()) {
+            redirect(action: 'listAdmin', params: params)
+        } else {
+            redirect(action: 'listOspiti', params: params)
+        }// fine del blocco if-else
+    } // fine del metodo
+
+    def listAdmin(Integer max) {
         def lista
         def campiLista = [
+                'id',
                 'ok',
-                'comune',
-                'disp',
-                'indirizzo',
+                'cat',
                 'nome',
+                'indirizzo',
+                'comune',
                 'rif',
-                'telpuntoblu'
+                'telpuntoblu',
+                'disp',
         ]
 
         if (!params.sort) {
@@ -56,21 +70,15 @@ class DaeController {
             params.order = 'asc'
         }// fine del blocco if-else
 
-        //--colonna solo per il programmatore
-        if (utenteService.isLoggatoProgrammatore()) {
-            campiLista.add(0, 'id')
-        }// fine del blocco if
-
         lista = Dae.list()
 
         if (params?.format && params.format != "html") {
-
             List fields = []
             def properties = new DefaultGrailsDomainClass(Dae.class).persistentProperties
             properties?.each {
                 fields.add(it.name)
             } // fine del ciclo each
-             String oggi = Lib.presentaDataMese(new Date())
+            String oggi = Lib.presentaDataMese(new Date())
             Map parameters = [title: "Dae al ${oggi}"]
             response.contentType = grailsApplication.config.grails.mime.types[params.format]
             response.setHeader("Content-disposition", "attachment; filename=Dae.${params.extension}")
@@ -80,6 +88,36 @@ class DaeController {
         render(view: 'list', model: [daeInstanceList: lista, daeInstanceTotal: 0, campiLista: campiLista], params: params)
     } // fine del metodo
 
+    def listOspiti(Integer max) {
+        def lista
+        if (params.error) {
+            flash.error = params.error
+        }// fine del blocco if
+
+        def campiLista = [
+                'cat',
+                'nome',
+                'indirizzo',
+                'comune',
+        ]
+
+        if (!params.sort) {
+            params.sort = 'comune'
+        }// fine del blocco if-else
+
+        if (params.order) {
+            if (params.order == 'asc') {
+                params.order = 'desc'
+            } else {
+                params.order = 'asc'
+            }// fine del blocco if-else
+        } else {
+            params.order = 'asc'
+        }// fine del blocco if-else
+
+        lista = Dae.list()
+        render(view: 'list', model: [daeInstanceList: lista, daeInstanceTotal: 0, campiLista: campiLista], params: params)
+    } // fine del metodo
 
     def comunimappa(Long id) {
         Comune comune
@@ -135,6 +173,7 @@ class DaeController {
             myTitolo = 'Mappa dei ' + myLat.size() + ' defibrillatori siti nel comune di ' + comune
         }// fine del blocco if
 
+
         if (myLat.size() < 1) {
             listaDae = Dae.findAll()
             myLat = new ArrayList()
@@ -165,7 +204,12 @@ class DaeController {
             myTitolo = 'Mappa dei defibrillatori di tutta la provincia (dati provvisori).'
         }// fine del blocco if
 
-        render(view: 'mappa', model: [myTitolo: myTitolo, myComune: myComune, myLat: myLat, myLon: myLon, myTip: myTip])
+        if (myLat && myLat.size() > 0 && myLon && myLon.size() > 0) {
+            render(view: 'mappa', model: [myTitolo: myTitolo, myComune: myComune, myLat: myLat, myLon: myLon, myTip: myTip])
+        } else {
+            params.error = 'La mappa non può essere visualizzata, perché mancano tutte le coordinate dei defibrillatori'
+            redirect(action: 'list', params: params)
+        }// fine del blocco if-else
     }
 
     def comunilista(Long id) {
