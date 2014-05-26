@@ -29,8 +29,8 @@ class LibFile {
         }// fine del blocco if
 
         try { // prova ad eseguire il codice
-//            stream = new InputStreamReader(new URL(filePath).openStream(), "UTF-8")
-            stream = new InputStreamReader(new FileInputStream(filePath))
+            stream = new InputStreamReader(new URL(filePath).openStream(), "UTF-8")
+//            stream = new InputStreamReader(new FileInputStream(filePath))
             if (stream) {
                 reader = new CSVMapReader(stream)
             }// fine del blocco if
