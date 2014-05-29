@@ -161,11 +161,11 @@ class DaeController {
                     if (dae.nome) {
                         detail += dae.nome
                     }// fine del blocco if
-                    if (dae.nome && dae.loc) {
+                    if (dae.nome && dae.indirizzo) {
                         detail += ' - '
                     }// fine del blocco if
-                    if (dae.loc) {
-                        detail += dae.loc
+                    if (dae.indirizzo) {
+                        detail += dae.indirizzo
                     }// fine del blocco if
                     myTip.add(detail)
                 }// fine del blocco if
@@ -192,11 +192,11 @@ class DaeController {
                     if (dae.nome) {
                         detail += dae.nome
                     }// fine del blocco if
-                    if (dae.nome && dae.loc) {
+                    if (dae.nome && dae.indirizzo) {
                         detail += ' - '
                     }// fine del blocco if
-                    if (dae.loc) {
-                        detail += dae.loc
+                    if (dae.indirizzo) {
+                        detail += dae.indirizzo
                     }// fine del blocco if
                     myTip.add(detail)
                 }// fine del blocco if
