@@ -189,14 +189,14 @@ class DaeController {
                 if (lat && lon) {
                     myLat.add(dae.lat)
                     myLon.add(dae.lon)
-                    if (dae.disp) {
-                        detail += dae.disp
+                    if (dae.nome) {
+                        detail += dae.nome
                     }// fine del blocco if
-                    if (dae.disp && dae.indirizzo) {
+                    if (dae.nome && dae.loc) {
                         detail += ' - '
                     }// fine del blocco if
-                    if (dae.indirizzo) {
-                        detail += dae.indirizzo
+                    if (dae.loc) {
+                        detail += dae.loc
                     }// fine del blocco if
                     myTip.add(detail)
                 }// fine del blocco if
