@@ -158,10 +158,10 @@ class DaeController {
                     if (lon > 0) {
                         myLon.add(dae.lon)
                     }// fine del blocco if
-                    if (dae.disp) {
-                        detail += dae.disp
+                    if (dae.nome) {
+                        detail += dae.nome
                     }// fine del blocco if
-                    if (dae.disp && dae.loc) {
+                    if (dae.nome && dae.loc) {
                         detail += ' - '
                     }// fine del blocco if
                     if (dae.loc) {
