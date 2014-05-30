@@ -365,7 +365,8 @@ class VitaTagLib {
 //        out << 'Algos© - v2.1 del 2 luglio 2013'
 //        out << 'Algos© - v2.2 del 6 luglio 2013'
 //        out << 'Algos© - v2.4 del 26 maggio 2014'
-        out << 'Algos© - v2.5 del 29 maggio 2014'
+//        out << 'Algos© - v2.5 del 29 maggio 2014'
+        out << 'Algos© - v2.6 del 30 maggio 2014'
     }// fine della closure
 
 } // fine della classe TagLib

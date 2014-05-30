@@ -152,22 +152,24 @@ class DaeController {
                 if (!datiDefinitivi || (datiDefinitivi && dae.ok)) {
                     lat = dae.lat
                     lon = dae.lon
-                    if (lat > 0) {
-                        myLat.add(dae.lat)
+                    if (lat && lon) {
+                        if (lat > 0) {
+                            myLat.add(dae.lat)
+                        }// fine del blocco if
+                        if (lon > 0) {
+                            myLon.add(dae.lon)
+                        }// fine del blocco if
+                        if (dae.nome) {
+                            detail += dae.nome
+                        }// fine del blocco if
+                        if (dae.nome && dae.indirizzo) {
+                            detail += ' - '
+                        }// fine del blocco if
+                        if (dae.indirizzo) {
+                            detail += dae.indirizzo
+                        }// fine del blocco if
+                        myTip.add(detail)
                     }// fine del blocco if
-                    if (lon > 0) {
-                        myLon.add(dae.lon)
-                    }// fine del blocco if
-                    if (dae.nome) {
-                        detail += dae.nome
-                    }// fine del blocco if
-                    if (dae.nome && dae.indirizzo) {
-                        detail += ' - '
-                    }// fine del blocco if
-                    if (dae.indirizzo) {
-                        detail += dae.indirizzo
-                    }// fine del blocco if
-                    myTip.add(detail)
                 }// fine del blocco if
             } // fine del ciclo each
             myTitolo = 'Mappa dei ' + myLat.size() + ' defibrillatori siti nel comune di ' + comune

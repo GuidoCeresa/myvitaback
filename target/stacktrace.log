@@ -42613,3 +42613,428 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
 	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:347)
 	... 5 more
+2014-05-29 08:32:45,275 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.quartz.JobExecutionException: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused [See nested exception: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused]
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:111)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:400)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:340)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:336)
+	at org.springframework.mail.javamail.JavaMailSender$send$0.call(Unknown Source)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailMessageBuilder$sendMessage$0.call(Unknown Source)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at grails.plugin.mail.MailService$sendMail.call(Unknown Source)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.this$2$spedisceMail(RefreshJob.groovy)
+	at RefreshJob$this$2$spedisceMail.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	... 2 more
+Caused by: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:389)
+	... 22 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 25 more
+2014-05-29 08:32:45,278 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exception details (1) are:
+Failed message 1:
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:389)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:340)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:336)
+	at org.springframework.mail.javamail.JavaMailSender$send$0.call(Unknown Source)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailMessageBuilder$sendMessage$0.call(Unknown Source)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at grails.plugin.mail.MailService$sendMail.call(Unknown Source)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.this$2$spedisceMail(RefreshJob.groovy)
+	at RefreshJob$this$2$spedisceMail.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 25 more
+2014-05-29 08:32:45,279 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:389)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:340)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:336)
+	at org.springframework.mail.javamail.JavaMailSender$send$0.call(Unknown Source)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailMessageBuilder$sendMessage$0.call(Unknown Source)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at grails.plugin.mail.MailService$sendMail.call(Unknown Source)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.this$2$spedisceMail(RefreshJob.groovy)
+	at RefreshJob$this$2$spedisceMail.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 25 more
+2014-05-29 08:32:45,279 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:389)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:340)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:336)
+	at org.springframework.mail.javamail.JavaMailSender$send$0.call(Unknown Source)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailMessageBuilder$sendMessage$0.call(Unknown Source)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at grails.plugin.mail.MailService$sendMail.call(Unknown Source)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.this$2$spedisceMail(RefreshJob.groovy)
+	at RefreshJob$this$2$spedisceMail.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2014-05-29 08:32:45,279 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.quartz.JobExecutionException: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused [See nested exception: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused]
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:111)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	... 2 more
+Caused by: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	... 7 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 9 more
+2014-05-29 08:32:45,280 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.quartz.JobExecutionException: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused [See nested exception: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused]
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:111)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	... 2 more
+Caused by: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	... 7 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 9 more
+2014-05-29 08:32:45,280 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exception details (1) are:
+Failed message 1:
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 9 more
+2014-05-29 08:32:45,281 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 9 more
+2014-05-29 08:32:45,281 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2014-05-29 08:32:45,281 [quartzScheduler_Worker-2] ERROR StackTrace  - Full Stack Trace:
+org.quartz.JobExecutionException: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused [See nested exception: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused]
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:111)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.mail.MailSendException: Mail server connection failed; nested exception is javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused. Failed messages: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused; message exceptions (1) are:
+Failed message 1: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at grails.plugin.mail.MailMessageBuilder.sendMessage(MailMessageBuilder.groovy:104)
+	at grails.plugin.mail.MailService.sendMail(MailService.groovy:41)
+	at RefreshJob.spedisceMail(RefreshJob.groovy:49)
+	at RefreshJob.execute(RefreshJob.groovy:33)
+	at grails.plugins.quartz.GrailsJobFactory$GrailsJob.execute(GrailsJobFactory.java:104)
+	... 2 more
+Caused by: javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	... 7 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:382)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:241)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:228)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
+	at java.net.Socket.connect(Socket.java:527)
+	at java.net.Socket.connect(Socket.java:476)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+	... 9 more
